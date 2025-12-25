@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negging - El Arte de la Atracción</title>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & GLOBALES --- */
+        * { box-sizing: border-box; }
+        
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        /* --- CLASES DE UTILIDAD SECCIONES (BASE DESKTOP) --- */
+        .section-white {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 50px 20px;
+        }
+
+        .section-black {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 50px 20px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- TALKING HEAD --- */
+        .talking-head {
+            width: 100%;
+            background-color: #C00000;
+            color: #ffffff;
+            padding: 12px 15px;
+            text-align: center;
+            display: block;
+            font-family: "Times New Roman", Georgia, serif;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .text-column {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            order: 1;
+        }
+        
+        /* Ajuste Título Hero */
+        h1.hero-title {
+            font-size: 26px;
+            line-height: 1.2;
+            color: #000000;
+            font-weight: 900;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        
+        /* Corrección Hero: Rojo SIN subrayado */
+        .highlight-red {
+            color: #C00000;
+            text-decoration: none; 
+        }
+        
+        /* Corrección Hero: Subrayado normal */
+        .highlight-underline {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        p.hero-subtitle {
+            font-size: 16px;
+            color: #444444;
+            font-weight: 400;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+        .benefits-list {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0;
+            margin: 0;
+        }
+        .benefits-list li {
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #333;
+            text-align: left;
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .check-icon {
+            color: #C00000;
+            font-weight: 900;
+            font-size: 18px;
+            line-height: 1.3;
+            flex-shrink: 0;
+        }
+        .benefit-bold { font-weight: 700; color: #000; }
+        
+        .image-column {
+            width: 100%;
+            order: 2;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        /* --- TIPOGRAFÍA Y TEXTOS --- */
+        h2.section-title {
+            font-size: 26px; /* Ajuste móvil */
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .section-white h2 { color: #C00000; }
+        .section-black h2 { color: #ffffff; }
+
+        p.text-body {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .section-black p.text-body { color: #e0e0e0; }
+
+        /* --- BOTONES --- */
+        .btn-cta {
+            background: linear-gradient(180deg, #E60000 0%, #B00000 100%);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- PLACEHOLDERS IMAGEN --- */
+        .image-placeholder {
+            width: 100%;
+            max-width: 500px;
+            /* Ratio por defecto PC */
+            aspect-ratio: 4/5; 
+            background-color: #f4f4f4;
+            border: 2px dashed #cccccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-placeholder.landscape { aspect-ratio: 16/9; }
+        .image-placeholder.dark-mode {
+            background-color: #222;
+            border-color: #555;
+            color: #aaa;
+        }
+        .prompt-desc {
+            font-size: 11px;
+            font-family: monospace;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* --- OPTIMIZACIÓN IMÁGENES MÓVIL (Instrucción 1, 4, 6, 7) --- */
+        @media (max-width: 767px) {
+            .image-placeholder, 
+            .hero-section .image-placeholder,
+            .image-placeholder.landscape {
+                width: 60% !important; /* 60% Ancho */
+                aspect-ratio: 1/1 !important; /* Ratio 1:1 */
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            /* Ajuste de espaciados reducidos en móvil */
+            .section-white, .section-black {
+                padding-top: 25px !important; /* Reducción 50% aprox */
+                padding-bottom: 25px !important;
+            }
+            
+            /* Espaciado específico sección "No es Magia" */
+            .spacing-tight-top {
+                padding-top: 20px !important; /* 60% reducción */
+            }
+            .spacing-tight-bottom {
+                padding-bottom: 25px !important; /* 50% reducción */
+            }
+        }
+
+        /* --- ELEMENTOS ESPECÍFICOS --- */
+        .pain-list { list-style: none; padding: 0; width: 100%; }
+        .pain-list li { margin-bottom: 15px; display: flex; gap: 12px; align-items: flex-start; color: #ddd; }
+        .pain-icon { color: #C00000; font-weight: bold; }
+
+        /* Lista Beneficios Emojis (Corrección 4) */
+        .emoji-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            text-align: left; /* Justificado izquierda */
+        }
+        .emoji-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* BONOS */
+        .bonus-card {
+            background: #222;
+            border: 3px solid #C00000; /* Borde rojo grueso */
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .bonus-tag {
+            background-color: #C00000;
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        /* Texto Gratis Bonos */
+        .price-free {
+            color: #00C853; 
+            font-weight: 900; 
+            font-size: 16px; 
+            text-transform: uppercase; 
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* OFERTA */
+        .offer-box {
+            background: #fff;
+            border: 3px dashed #C00000;
+            border-radius: 10px;
+            padding: 25px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .price-container { margin: 25px 0; }
+        
+        .old-price {
+            font-size: 18px;
+            color: #888;
+            text-decoration: line-through;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .new-price {
+            font-size: 60px;
+            font-weight: 900;
+            color: #00C853;
+            line-height: 1;
+            display: block;
+        }
+
+        .guarantee-box {
+            text-align: center;
+            border: 1px solid #444;
+            padding: 30px;
+            border-radius: 8px;
+            background: #1a1a1a;
+        }
+
+        /* --- MEDIA QUERIES DESKTOP --- */
+        @media (min-width: 992px) {
+            .hero-section {
+                flex-direction: row;
+                padding-top: 40px;
+                padding-bottom: 60px;
+                gap: 40px;
+            }
+            .text-column { width: 50%; align-items: flex-start; text-align: left; order: 0; }
+            .image-column { width: 50%; display: block; order: 1; }
+            h1.hero-title { font-size: 38px; margin-bottom: 20px; }
+            p.hero-subtitle { font-size: 18px; margin-bottom: 25px; }
+            .benefits-list { gap: 15px; }
+            .talking-head { font-size: 22px; padding: 14px 20px; }
+            
+            /* Restore image size desktop */
+            .image-placeholder, 
+            .hero-section .image-placeholder,
+            .image-placeholder.landscape {
+                width: 100% !important;
+                aspect-ratio: 4/5 !important;
+            }
+            .image-placeholder.landscape { aspect-ratio: 16/9 !important; }
+
+            .section-white, .section-black { padding: 50px 20px !important; }
+
+            .grid-2-col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+                width: 100%;
+            }
+            .bonus-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!-- 1. HERO SECTION -->
+    <!-- ========================================= -->
+    <div class="talking-head">
+        Finalmente Revelada: La Fórmula de Psicología para Generar Atracción Instantánea.
+    </div>
+
+    <section class="hero-section">
+        <div class="text-column">
+            <!-- Corrección 1: Colores y Subrayado -->
+            <h1 class="hero-title">
+                Cómo Dejar De Ser El "Amigo Simpático" Y Convertirte En El Hombre Que Despierta <span class="highlight-red">Deseo, Intriga Y Respeto</span>... <span class="highlight-underline">Incluso Si Crees Que Ellas "Nunca Te Eligen"</span>.
+            </h1>
+            <p class="hero-subtitle">
+                Olvídate De Rogar Atención O Competir Con Billeteras Abultadas. Aprende A Usar Los "Interruptores De Atracción" Que La Mente Femenina No Puede Ignorar, Creando Tensión Sexual Y Misterio Desde La Primera Frase.
+            </p>
+            <ul class="benefits-list">
+                <li>
+                    <span class="check-icon">✅</span>
+                    <span>
+                        <span class="benefit-bold">Elimina El Miedo Al Rechazo:</span>
+                        Descubre Una Estructura Probada Para Iniciar Conversaciones Sin Quedarte En Blanco Y Sin Sentirte Torpe.
+                    </span>
+                </li>
+                <li>
+                    <span class="check-icon">✅</span>
+                    <span>
+                        <span class="benefit-bold">Sal De La "Friendzone" Para Siempre:</span>
+                        Deja De Ser El Paño De Lágrimas Y Conviértete En El Desafío Que Ellas Quieren Ganar.
+                    </span>
+                </li>
+                <li>
+                    <span class="check-icon">✅</span>
+                    <span>
+                        <span class="benefit-bold">100% Ético Y Efectivo:</span>
+                        Domina El Arte De La Seducción Psicológica Sin Caer En La Manipulación Tóxica Ni Perder Tu Esencia.
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="image-column">
+            <!-- Corrección 1: Imagen 60% ancho en móvil, 1:1 -->
+            <div class="image-placeholder">
+                <p><strong>[IMAGEN HERO]</strong></p>
+                <div class="prompt-desc">Hombre 35-40, blazer, en un bar oscuro, postura relajada, media sonrisa misteriosa.</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- 2. IDENTIFICACIÓN DEL PROBLEMA -->
+    <!-- ========================================= -->
+    <section class="section-black">
+        <div class="container">
+            <!-- Corrección 2: Reducción espacio superior móvil -->
+            <h2 class="section-title">¿Sientes Que Siempre Terminas Siendo El "Buen Amigo"?</h2>
+            
+            <div class="grid-2-col">
+                <div class="image-placeholder dark-mode landscape">
+                    <p><strong>[IMAGEN DOLOR]</strong></p>
+                    <div class="prompt-desc">Punto de vista en primera persona: Un hombre mirando su celular con frustración.</div>
+                </div>
+                
+                <div>
+                    <p class="text-body">No importa cuánto te esfuerces, cuánto escuches o cuán caballero seas. Al final, ella termina con el tipo que parece no importarle nada, mientras tú te quedas escuchando sus problemas.</p>
+                    <ul class="pain-list">
+                        <li><span class="pain-icon">✖</span> ¿Te cuesta iniciar conversaciones sin sentirte torpe o invasivo?</li>
+                        <li><span class="pain-icon">✖</span> ¿Te esfuerzas por agradar, pero nunca despiertas deseo sexual real?</li>
+                        <li><span class="pain-icon">✖</span> ¿Te han dicho "eres muy bueno" justo antes de alejarte?</li>
+                        <li><span class="pain-icon">✖</span> ¿Sientes que te falta una fórmula clara para dejar de ser invisible?</li>
+                    </ul>
+                    <p class="text-body" style="color: #C00000; font-weight: bold; margin-top: 20px;">No es tu culpa. Es que nadie te enseñó las reglas ocultas de la atracción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- 3. LA SOLUCIÓN (MÉTODO) -->
+    <!-- ========================================= -->
+    <!-- Corrección 3: Clase especial para espaciado reducido -->
+    <section class="section-white spacing-tight-top spacing-tight-bottom">
+        <div class="container">
+            <h2 class="section-title">No Es Magia. Es Psicología Aplicada Con Precisión.</h2>
+            
+            <div class="grid-2-col">
+                <div style="order: 2;">
+                    <!-- Corrección 3: NEGGING en negrita al inicio -->
+                    <p class="text-body"><strong>NEGGING</strong> no se trata de insultar ni de ser un patán. Es el arte sutil de la <strong>calibración emocional</strong>.</p>
+                    <p class="text-body" style="font-weight: 700;">APRENDERÁS A USAR LA PSICOLOGÍA CONDUCTUAL PARA:</p>
+                    
+                    <!-- Corrección 4: Lista Emojis sin bullets, justificada izquierda, negritas específicas -->
+                    <ul class="emoji-list" style="margin-bottom: 20px;">
+                        <li>🎯 Generar <strong>tensión emocional</strong> que despierta interés inmediato.</li>
+                        <li>🎯 Usar técnicas "<strong>Push & Pull</strong>" para que ella busque tu validación.</li>
+                        <li>🎯 <strong>Diferenciarte</strong> del 99% de hombres predecibles y aburridos.</li>
+                        <li>🎯 <strong>Dominar</strong> interacciones sociales con humor y desafío.</li>
+                    </ul>
+                </div>
+                
+                <!-- Corrección 4: Imagen 60% 1:1 en móvil -->
+                <div class="image-placeholder" style="order: 1;">
+                    <p><strong>[IMAGEN SOLUCIÓN]</strong></p>
+                    <div class="prompt-desc">Hombre susurrando algo divertido a una mujer.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- SECCIÓN NUEVA 1: TRANSICIÓN -->
+    <!-- ========================================= -->
+    <section class="section-black">
+        <div class="container">
+            <!-- Corrección 5: Espacio reducido -->
+            <h2 class="section-title">¿Por Qué "Ser Caballeroso" Te Mantiene Soltero?</h2>
+            <div class="grid-2-col">
+                <div class="image-placeholder dark-mode">
+                     <p><strong>[IMAGEN CONTRASTE]</strong></p>
+                     <div class="prompt-desc">Contraste visual de actitudes.</div>
+                </div>
+                <div>
+                    <p class="text-body">Te dijeron que si eras atento, escuchabas y pagabas la cena, ellas caerían rendidas. <strong>Es mentira.</strong></p>
+                    <p class="text-body">Sin tensión sexual, la amabilidad se interpreta como debilidad. Ellas no buscan un asistente ni un fanático, buscan un hombre con dirección y estándares.</p>
+                    <p class="text-body">Cuando eres demasiado predecible, matas el misterio. Y sin misterio, no hay deseo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECCIÓN NUEVA 2: TRANSICIÓN -->
+    <!-- ========================================= -->
+    <section class="section-white">
+        <div class="container">
+            <!-- Corrección 6: Espacio reducido -->
+            <h2 class="section-title">El Cambio De Chip: Tú Eres El Premio</h2>
+            <div class="grid-2-col">
+                 <div style="order: 2;">
+                    <p class="text-body">La mayoría de hombres regala su atención indiscriminadamente. Tú aprenderás a dosificarla.</p>
+                    <p class="text-body">Cuando dejas de buscar validación y empiezas a divertirte con la interacción, <strong>la dinámica cambia instantáneamente</strong>.</p>
+                    <p class="text-body">Al aplicar estas técnicas, dejas de ser el que persigue y te conviertes en el desafío que ellas quieren descifrar y ganar.</p>
+                 </div>
+                 <!-- Corrección 6: Imagen 60% 1:1 en móvil -->
+                 <div class="image-placeholder" style="order: 1;">
+                    <p><strong>[IMAGEN CONTROL]</strong></p>
+                    <div class="prompt-desc">Hombre relajado en un sofá, mujer interesada.</div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- 4. BONOS -->
+    <!-- ========================================= -->
+    <section class="section-black">
+        <div class="container">
+            <!-- Corrección 7: Espacio reducido -->
+            <h2 class="section-title">Tu Ventaja Injusta: 3 Herramientas De Poder Incluidas</h2>
+            <p class="text-body" style="text-align: center; color: #aaa;">(Solo disponibles si accedes hoy)</p>
+            
+            <div class="bonus-grid">
+                <!-- BONO 1 -->
+                <div class="bonus-card">
+                    <span class="bonus-tag">GRATIS</span>
+                    <!-- Corrección 7: Imagen 60% 1:1 en móvil (via CSS global) -->
+                    <div class="image-placeholder landscape dark-mode" style="height: 150px;">
+                        <p>[IMG BONO 1]</p>
+                        <div class="prompt-desc">Hombre mirándose al espejo.</div>
+                    </div>
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Bono #1: Recupera Tu Confianza en 10 Minutos</h3>
+                    <p class="text-body" style="font-size: 14px;">Un protocolo de emergencia de 5 pasos para eliminar la ansiedad antes de cualquier cita o interacción.</p>
+                    <!-- Corrección 7: Precio reemplazado -->
+                    <p class="price-free">TOTALMENTE GRATIS</p>
+                </div>
+
+                <!-- BONO 2 -->
+                <div class="bonus-card">
+                    <span class="bonus-tag">GRATIS</span>
+                    <div class="image-placeholder landscape dark-mode" style="height: 150px;">
+                        <p>[IMG BONO 2]</p>
+                        <div class="prompt-desc">Silueta de hombre con postura alfa.</div>
+                    </div>
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Bono #2: Lenguaje Corporal Magnético</h3>
+                    <p class="text-body" style="font-size: 14px;">Aprende las 3 posturas que comunican estatus y seguridad sin decir una sola palabra.</p>
+                    <!-- Corrección 7: Precio reemplazado -->
+                    <p class="price-free">TOTALMENTE GRATIS</p>
+                </div>
+
+                <!-- BONO 3 -->
+                <div class="bonus-card">
+                    <span class="bonus-tag">NUEVO Y EXCLUSIVO</span>
+                    <div class="image-placeholder landscape dark-mode" style="height: 150px;">
+                        <p><strong>[IMG BONO 3]</strong></p>
+                        <div class="prompt-desc">Pareja en cena. Conexión visual.</div>
+                    </div>
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Bono #3: Filtro Secreto</h3>
+                    <p class="text-body" style="font-size: 14px;">Cómo detectar intenciones reales en menos de 5 interacciones. Evita perder tiempo y descubre si su interés es genuino al instante.</p>
+                    <p style="color: #00C853; font-weight: bold; font-size: 14px;">Valor Real: Incalculable</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- 5. OFERTA IRRESISTIBLE -->
+    <!-- ========================================= -->
+    <section class="section-white">
+        <div class="container">
+            <!-- Corrección 8: Espacio reducido -->
+            <h2 class="section-title">Todo Lo Que Necesitas Para Transformar Tu Vida Social</h2>
+            
+            <div class="offer-box">
+                <div class="image-placeholder landscape">
+                    <p><strong>[MOCKUP COMPLETO]</strong></p>
+                    <div class="prompt-desc">Imagen digital mostrando el Ebook + Bonos.</div>
+                </div>
+
+                <div style="text-align: left; margin: 20px auto; max-width: 500px; color: #333;">
+                    <!-- Corrección 8: Texto Ebook sin negritas -->
+                    <p style="margin-bottom: 8px;">EBOOK: NEGGING - Técnicas Oscuras de Seducción para Despertar Atracción y Deseo en Cualquier Mujer (Negging) – (Valor real $67)</p>
+                    <p style="margin-bottom: 8px;">🎁 + 3 Bonos Incluidos GRATIS</p>
+                    <p style="margin-bottom: 8px;">🔒 1 Bono Exclusivo NO DISPONIBLE PARA VENTA</p>
+                </div>
+
+                <!-- Corrección 8: Espaciador reducido (10px) -->
+                <div style="height: 10px;"></div>
+
+                <div class="price-container">
+                    <span class="old-price">Precio Normal: $67 USD</span>
+                    <span class="launch-label" style="display:block; font-weight:900; color:#000; margin-bottom:5px; font-size:18px; text-transform:uppercase;">OFERTA DE LANZAMIENTO:</span>
+                    <span class="new-price">$7</span>
+                </div>
+
+                <a href="#" class="btn-cta">QUIERO ACCESO INMEDIATO</a>
+                
+                <p style="font-size: 12px; color: #666; margin-top: 15px;">
+                    🔒 Pago 100% Seguro y encriptado. Acceso instantáneo por correo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- 6. GARANTÍA -->
+    <!-- ========================================= -->
+    <section class="section-black">
+        <div class="container">
+            <div class="guarantee-box">
+                <div class="image-placeholder" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px auto; background: #000;">
+                    <p style="font-size: 10px;">[SELLO GARANTÍA]</p>
+                </div>
+                <h2 class="section-title" style="font-size: 24px;">Tu Riesgo Es Cero</h2>
+                <p class="text-body" style="text-align: center;">
+                    Prueba el método por <strong>7 días completos</strong>. Lee el material, aplica las técnicas de apertura y observa cómo cambia la reacción de las mujeres.
+                </p>
+                <p class="text-body" style="text-align: center;">
+                    Si no sientes que tienes más control y confianza, o simplemente no te gusta el contenido, te devolvemos el 100% de tu dinero. Sin preguntas incómodas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- 7. CTA FINAL -->
+    <!-- ========================================= -->
+    <section class="section-white" style="text-align: center;">
+        <div class="container">
+            <!-- Corrección 9: Espacio reducido -->
+            <h2 class="section-title">Deja De Esperar A Que Te Elijan. Empieza A Elegir Tú.</h2>
+            <p class="text-body" style="text-align: center; max-width: 600px;">
+                No necesitas ser millonario ni modelo. Solo necesitas entender cómo funciona la mente femenina y presionar los interruptores correctos.
+            </p>
+            
+            <a href="#" class="btn-cta">DESCARGAR MÉTODO AHORA</a>
+            
+            <div style="margin-top: 60px; border-top: 1px solid #ddd; padding-top: 20px; width: 100%;">
+                <p style="font-size: 12px; color: #888;">
+                    © 2024 NEGGING - Todos los derechos reservados.<br>
+                    Este sitio no es parte de Facebook o Facebook Inc.
+                </p>
+                <p style="font-size: 11px; color: #aaa; margin-top: 10px;">
+                    <a href="#" style="color: #888;">Términos de Uso</a> | <a href="#" style="color: #888;">Política de Privacidad</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
