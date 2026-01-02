@@ -271,23 +271,6 @@
         .pain-list li { margin-bottom: 15px; display: flex; gap: 12px; align-items: flex-start; color: #ddd; }
         .pain-icon { color: #C00000; font-weight: bold; }
 
-        .emoji-list {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-            text-align: left;
-        }
-        .emoji-list li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: #333;
-            line-height: 1.5;
-            font-size: 16px;
-        }
-
-        /* Lista para la sección Intriga */
         .intriga-list {
             list-style: none;
             padding: 0;
@@ -317,14 +300,26 @@
             gap: 20px;
             width: 100%;
         }
+        
         .bonus-card {
-            background: #222;
+            background: #ffffff;
             border: 3px solid #C00000; 
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
             width: 100%;
         }
+        
+        .bonus-card h3 {
+            color: #000000 !important;
+            font-size: 18px; 
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .bonus-card p.text-body {
+            color: #333333 !important;
+        }
+        
         .bonus-tag {
             background-color: #C00000;
             color: white;
@@ -406,8 +401,10 @@
             .testimonial-img {
                 width: 85% !important;
             }
+            /* CORRECCIÓN 1: CHAT RATIO MÓVIL 9:16 FORZADO */
             .chat-ratio {
                 aspect-ratio: 9/16 !important;
+                width: 85% !important;
             }
             .section-white, .section-black, .hero-section {
                 padding-top: 25px !important;
@@ -415,6 +412,12 @@
             }
             .hero-section { gap: 15px !important; }
             h2.section-title { font-size: 22px !important; margin-bottom: 15px !important; }
+
+            .offer-vertical-img {
+                aspect-ratio: 9/16 !important; 
+                width: 85% !important; 
+                margin: 0 auto 20px auto !important;
+            }
         }
 
         /* --- MEDIA QUERIES DESKTOP --- */
@@ -448,15 +451,31 @@
                 align-items: center;
                 width: 100%;
             }
+            /* CORRECCIÓN 2: GRID DE TESTIMONIOS DESKTOP SIDE BY SIDE */
             .testimonials-grid, .bonus-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
             .trust-badges { flex-direction: row; justify-content: center; gap: 20px; }
 
-            .offer-main-img {
-                aspect-ratio: 1/1 !important; 
+            .offer-vertical-img {
+                aspect-ratio: 9/16 !important; 
                 margin: 0 auto 20px auto !important; 
                 width: 70% !important; 
+            }
+            
+            .bonus-img-container {
+                width: 100% !important;
+                max-width: 600px !important;
+                aspect-ratio: 1/1 !important;
+                margin: 0 auto 20px auto !important;
+            }
+            
+            .testimonial-img {
+                width: 100% !important;
+                max-width: 100% !important; /* Full width dentro de la columna */
+                aspect-ratio: 9/16 !important; /* Mismo ratio en desktop para consistencia visual */
+                margin: 0 auto !important;
             }
         }
     </style>
@@ -566,6 +585,7 @@
             
             <div class="testimonials-grid">
                 <div>
+                    <!-- CORRECCIÓN: Clases chat-ratio aplicadas y estilos inline removidos para que el CSS funcione -->
                     <div class="image-placeholder dark-mode testimonial-img chat-ratio">
                         <p><strong>[CHAT 1]</strong></p>
                         <div class="prompt-desc" style="display:none;">H: "Siempre me dio risa cómo la gente se toma todo tan en serio." M: "¿Eso es una indirecta?" H: "No, es una observación. Pero si te sentiste aludida, es interesante 😏" M: "Jaja, ok… ahora me dejaste pensando." H: "Ese es un buen lugar para estar." M (minutos después): "¿Siempre eres así?"</div>
@@ -573,6 +593,7 @@
                     <p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Antes me dejaban en visto. Ahora, si tardo en responder, ellas vuelven a escribir."</p>
                 </div>
                 <div>
+                    <!-- CORRECCIÓN: Clases chat-ratio aplicadas -->
                     <div class="image-placeholder dark-mode testimonial-img chat-ratio">
                         <p><strong>[CHAT 2]</strong></p>
                         <div class="prompt-desc" style="display:none;">M: "Gracias por escucharme, siempre eres muy atento." H: "No escucho a todo el mundo. Solo a quien me resulta interesante." M: "¿Y yo lo soy?" H: "Si no lo fueras, no estaríamos hablando." M: "… ok, eso cambió el tono." H: "Me gusta cambiar dinámicas."</div>
@@ -580,6 +601,7 @@
                     <p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Dejé de ser el amigo que escucha problemas y pasé a ser el hombre que genera emociones."</p>
                 </div>
                 <div>
+                    <!-- CORRECCIÓN: Clases chat-ratio aplicadas -->
                     <div class="image-placeholder dark-mode testimonial-img chat-ratio">
                         <p><strong>[CHAT 3]</strong></p>
                         <div class="prompt-desc" style="display:none;">M: "Pensé que ibas a responder más rápido." H: "Estaba ocupado eligiendo bien a quién dedicarle mi tiempo." M: "¿Y ahora?" H: "Ahora veo que valió la pena." M: "Eres peligroso." H: "Solo para quien no sabe manejar la tensión."</div>
@@ -628,28 +650,31 @@
         <div class="container">
             <h2 class="section-title">Tu Ventaja Injusta: 3 Herramientas De Poder Incluidas</h2>
             <div class="bonus-grid">
+                <!-- Bono 1 -->
                 <div class="bonus-card">
                     <span class="bonus-tag">GRATIS</span>
-                    <div class="image-placeholder dark-mode square-ratio">
+                    <div class="image-placeholder bonus-img-container">
                         <p>[IMG BONO 1]</p>
                     </div>
-                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Bono #1: Recupera Tu Confianza</h3>
+                    <h3>Bono #1: Recupera Tu Confianza</h3>
                     <p class="price-free">TOTALMENTE GRATIS</p>
                 </div>
+                <!-- Bono 2 -->
                 <div class="bonus-card">
                     <span class="bonus-tag">GRATIS</span>
-                    <div class="image-placeholder dark-mode square-ratio">
+                    <div class="image-placeholder bonus-img-container">
                         <p>[IMG BONO 2]</p>
                     </div>
-                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Bono #2: Lenguaje Corporal</h3>
+                    <h3>Bono #2: Lenguaje Corporal</h3>
                     <p class="price-free">TOTALMENTE GRATIS</p>
                 </div>
+                <!-- Bono 3 -->
                 <div class="bonus-card">
                     <span class="bonus-tag">NUEVO Y EXCLUSIVO</span>
-                    <div class="image-placeholder dark-mode square-ratio">
+                    <div class="image-placeholder bonus-img-container">
                         <p><strong>[IMG BONO 3]</strong></p>
                     </div>
-                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Bono #3: Filtro Secreto</h3>
+                    <h3>Bono #3: Filtro Secreto</h3>
                     <p style="color: #00C853; text-align: center; text-transform: uppercase; font-weight: 900; margin-top: 10px;">VALOR REAL: INCALCULABLE</p>
                 </div>
             </div>
@@ -661,8 +686,8 @@
         <div class="container">
             <h2 class="section-title">Todo Lo Que Necesitas Para Transformar Tu Vida Social</h2>
             <div class="offer-box">
-                <div class="image-placeholder landscape offer-main-img">
-                    <p><strong>[MOCKUP COMPLETO]</strong></p>
+                <div class="image-placeholder offer-vertical-img">
+                    <p><strong>[MOCKUP COMPLETO VERTICAL]</strong></p>
                 </div>
                 <div style="text-align: left; margin: 20px auto; max-width: 500px; color: #333;">
                     <p style="margin-bottom: 8px;">EBOOK: NEGGING - Técnicas Oscuras de Seducción para Despertar Atracción y Deseo en Cualquier Mujer (Negging)</p>
@@ -704,7 +729,7 @@
             <h2 class="section-title">Detrás de NEGGING Hay Experiencia y Visión Masculina</h2>
             <div class="grid-2-col">
                 <div style="text-align: center;">
-                    <img src="" alt="" class="author-img-style image-placeholder"> 
+                    <div class="author-img-style image-placeholder"></div>
                 </div>
                 <div>
                     <h3 style="font-size: 24px; font-weight: 800; color: #000; margin-bottom: 10px;">Carlos Vásquez</h3>
