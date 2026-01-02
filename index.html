@@ -1,793 +1,715 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negging - El Arte de la Atracción</title>
-    <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* --- RESET & GLOBALES --- */
-        * { box-sizing: border-box; }
-        
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            max-width: 100vw;
-            overflow-x: hidden;
-            background-color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            color: #1a1a1a;
-            line-height: 1.5;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Negging - El Arte de la Atracción</title>
+<!-- Fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* --- RESET & GLOBALES --- */
+* { box-sizing: border-box; }
+html, body {
+margin: 0 !important;
+padding: 0 !important;
+width: 100%;
+max-width: 100vw;
+overflow-x: hidden;
+background-color: #ffffff;
+font-family: 'Montserrat', sans-serif;
+color: #1a1a1a;
+line-height: 1.5;
+}
+/* --- ANIMACIÓN BOTONES --- */
+@keyframes shake-pulse {
+0% { transform: scale(1) rotate(0deg); box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4); }
+2% { transform: scale(1.02) rotate(-2deg); }
+4% { transform: scale(1.02) rotate(2deg); }
+6% { transform: scale(1.02) rotate(-2deg); }
+8% { transform: scale(1.02) rotate(2deg); }
+10% { transform: scale(1) rotate(0deg); box-shadow: 0 8px 25px rgba(230, 0, 0, 0.6); }
+100% { transform: scale(1) rotate(0deg); box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4); }
+}
+.btn-cta {
+background: linear-gradient(180deg, #E60000 0%, #B00000 100%);
+color: white;
+padding: 18px 30px;
+border-radius: 8px;
+font-weight: 800;
+font-size: 18px;
+text-transform: uppercase;
+text-decoration: none;
+display: block;
+width: 100%;
+max-width: 400px;
+text-align: center;
+margin: 20px auto;
+box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4);
+border: none;
+cursor: pointer;
+animation: shake-pulse 4s infinite ease-in-out;
+}
+/* --- CLASES DE UTILIDAD SECCIONES --- */
+.section-white {
+background-color: #ffffff;
+color: #000000;
+padding: 50px 20px;
+}
+.section-black {
+background-color: #111111;
+color: #ffffff;
+padding: 50px 20px;
+border-top: 1px solid #333;
+border-bottom: 1px solid #333;
+}
+.container {
+width: 100%;
+max-width: 1100px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* --- TALKING HEAD --- */
+.talking-head {
+width: 100%;
+background-color: #C00000;
+color: #ffffff;
+padding: 12px 15px;
+text-align: center;
+display: block;
+font-family: "Times New Roman", Georgia, serif;
+font-weight: 600;
+font-size: 18px;
+line-height: 1.2;
+letter-spacing: 0.5px;
+}
+/* --- HERO SECTION --- */
+.hero-section {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 15px 20px 30px 20px;
+display: flex;
+flex-direction: column;
+gap: 25px;
+}
+.text-column {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+order: 1;
+}
+h1.hero-title {
+font-size: 26px;
+line-height: 1.2;
+color: #000000;
+font-weight: 900;
+text-transform: capitalize;
+margin-bottom: 10px;
+width: 100%;
+}
+.highlight-red {
+color: #C00000;
+text-decoration: none;
+}
+.highlight-underline {
+text-decoration: underline;
+text-decoration-thickness: 2px;
+text-underline-offset: 4px;
+}
+p.hero-subtitle {
+font-size: 16px;
+color: #444444;
+font-weight: 400;
+width: 100%;
+margin-bottom: 12px;
+}
+.benefits-list {
+list-style: none;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 12px;
+padding: 0;
+margin: 0;
+}
+.benefits-list li {
+font-size: 15px;
+display: flex;
+align-items: flex-start;
+gap: 10px;
+color: #333;
+text-align: left;
+width: 100%;
+line-height: 1.5;
+}
+.check-icon {
+color: #C00000;
+font-weight: 900;
+font-size: 18px;
+line-height: 1.3;
+flex-shrink: 0;
+}
+.benefit-text { display: inline; }
+.benefit-bold { font-weight: 700; color: #000; }
+.image-column {
+width: 100%;
+order: 2;
+display: flex;
+justify-content: center;
+margin-bottom: 0;
+}
 
-        /* --- ANIMACIÓN BOTONES --- */
-        @keyframes shake-pulse {
-            0% { transform: scale(1) rotate(0deg); box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4); }
-            2% { transform: scale(1.02) rotate(-2deg); }
-            4% { transform: scale(1.02) rotate(2deg); }
-            6% { transform: scale(1.02) rotate(-2deg); }
-            8% { transform: scale(1.02) rotate(2deg); }
-            10% { transform: scale(1) rotate(0deg); box-shadow: 0 8px 25px rgba(230, 0, 0, 0.6); }
-            100% { transform: scale(1) rotate(0deg); box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4); }
-        }
+/* --- CORRECCIÓN CLAVE: IMÁGENES SIN ESPACIOS NI BORDES --- */
+.image-placeholder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  border: none !important;
+}
 
-        .btn-cta {
-            background: linear-gradient(180deg, #E60000 0%, #B00000 100%);
-            color: white;
-            padding: 18px 30px;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 18px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            margin: 20px auto;
-            box-shadow: 0 4px 15px rgba(192, 0, 0, 0.4);
-            border: none;
-            cursor: pointer;
-            animation: shake-pulse 4s infinite ease-in-out;
-        }
-
-        /* --- CLASES DE UTILIDAD SECCIONES --- */
-        .section-white {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 50px 20px;
-        }
-
-        .section-black {
-            background-color: #111111;
-            color: #ffffff;
-            padding: 50px 20px;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* --- TALKING HEAD --- */
-        .talking-head {
-            width: 100%;
-            background-color: #C00000;
-            color: #ffffff;
-            padding: 12px 15px;
-            text-align: center;
-            display: block;
-            font-family: "Times New Roman", Georgia, serif;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 1.2;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px 30px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        .text-column {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            order: 1;
-        }
-        h1.hero-title {
-            font-size: 26px;
-            line-height: 1.2;
-            color: #000000;
-            font-weight: 900;
-            text-transform: capitalize;
-            margin-bottom: 10px;
-            width: 100%;
-        }
-        .highlight-red {
-            color: #C00000;
-            text-decoration: none;
-        }
-        .highlight-underline {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
-        }
-        p.hero-subtitle {
-            font-size: 16px;
-            color: #444444;
-            font-weight: 400;
-            width: 100%;
-            margin-bottom: 12px;
-        }
-        
-        .benefits-list {
-            list-style: none;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding: 0;
-            margin: 0;
-        }
-        .benefits-list li {
-            font-size: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            color: #333;
-            text-align: left;
-            width: 100%;
-            line-height: 1.5;
-        }
-        .check-icon {
-            color: #C00000;
-            font-weight: 900;
-            font-size: 18px;
-            line-height: 1.3;
-            flex-shrink: 0;
-        }
-        .benefit-text { display: inline; }
-        .benefit-bold { font-weight: 700; color: #000; }
-        
-        .image-column {
-            width: 100%;
-            order: 2;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0;
-        }
-
-        /* --- TIPOGRAFÍA Y TEXTOS --- */
-        h2.section-title {
-            font-size: 26px;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .section-white h2 { color: #000000; }
-        .section-black h2 { color: #ffffff; }
-
-        p.text-body {
-            font-size: 16px;
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        .section-black p.text-body { color: #e0e0e0; }
-
-        /* --- IMÁGENES & PLACEHOLDERS --- */
-        .image-placeholder {
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 4/5; 
-            background-color: #f4f4f4;
-            border: 2px dashed #C00000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-weight: bold;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .image-placeholder.landscape { aspect-ratio: 16/9; }
-        .image-placeholder.dark-mode {
-            background-color: #222;
-            border-color: #C00000;
-            color: #aaa;
-        }
-        .prompt-desc {
-            font-size: 11px;
-            font-family: monospace;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        /* ESTILOS ESPECÍFICOS */
-        .chat-ratio { aspect-ratio: 9/16 !important; }
-        .square-ratio { aspect-ratio: 1/1 !important; }
-
-        /* --- IMÁGENES CIRCULARES --- */
-        .circle-image-container {
-            width: 210px; 
-            height: 210px;
-            border-radius: 50%;
-            margin: 0 auto 25px auto;
-            overflow: hidden;
-            display: block;
-            border: 4px solid #C00000;
-            background-color: #000;
-            aspect-ratio: 1/1;
-        }
-        
-        .circle-image-container img, 
-        .circle-image-container .image-placeholder {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            margin: 0;
-            border-radius: 50%;
-            border: none;
-        }
-
-        .author-img-style {
-            width: 215px;
-            height: 215px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid #C00000; 
-            margin: 0 auto 20px auto;
-            display: block;
-            aspect-ratio: 1/1;
-            flex-shrink: 0; 
-        }
-
-        /* --- ELEMENTOS ESPECÍFICOS --- */
-        .pain-list { list-style: none; padding: 0; width: 100%; }
-        .pain-list li { margin-bottom: 15px; display: flex; gap: 12px; align-items: flex-start; color: #ddd; }
-        .pain-icon { color: #C00000; font-weight: bold; }
-
-        .intriga-list {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .intriga-list li {
-            background-color: #f9f9f9;
-            border: 1px solid #eee;
-            padding: 12px 15px;
-            border-radius: 6px;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #333;
-            text-align: left;
-        }
-        .intriga-list li .check-icon { font-size: 16px; }
-
-        /* --- BONOS --- */
-        .bonus-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            width: 100%;
-        }
-        
-        .bonus-card {
-            background: #ffffff;
-            border: 3px solid #C00000; 
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        
-        .bonus-card h3 {
-            color: #000000 !important;
-            font-size: 18px; 
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .bonus-card p.text-body {
-            color: #333333 !important;
-        }
-        
-        .bonus-tag {
-            background-color: #C00000;
-            color: white;
-            padding: 4px 10px;
-            font-size: 12px;
-            font-weight: 700;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .price-free {
-            color: #00C853; 
-            font-weight: 900; 
-            font-size: 16px; 
-            text-transform: uppercase; 
-            text-align: center;
-            display: block;
-            margin-top: 10px;
-        }
-
-        /* --- OFERTA --- */
-        .offer-box {
-            background: #fff;
-            border: 3px dashed #C00000;
-            border-radius: 10px;
-            padding: 25px;
-            width: 100%;
-            text-align: center;
-        }
-        .price-container { margin: 25px 0; }
-        .old-price {
-            font-size: 18px;
-            color: #888;
-            text-decoration: line-through;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .launch-label {
-            display: block;
-            font-weight: 900;
-            color: #000;
-            margin-bottom: 5px;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-        .new-price {
-            font-size: 60px;
-            font-weight: 900;
-            color: #00C853;
-            line-height: 1;
-            display: block;
-        }
-
-        /* --- FAQ --- */
-        .faq-item { width: 100%; margin-bottom: 10px; border-radius: 5px; overflow: hidden; background-color: #fff; text-align: left; }
-        .faq-item summary { background-color: #C00000; color: white; padding: 15px 20px; cursor: pointer; list-style: none; position: relative; font-weight: 700; font-size: 16px; }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: '+'; position: absolute; right: 20px; font-weight: 900; font-size: 20px; }
-        .faq-item[open] > summary::after { content: '-'; }
-        .faq-respuesta { padding: 20px; border: 1px solid #eee; border-top: none; color: #333; }
-
-        .trust-badges { display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #666; margin-top: 15px; align-items: center; }
-        .trust-item i { margin-right: 8px; color: #C00000; }
-
-        footer { background-color: #111; color: #888; padding: 40px 20px; text-align: center; border-top: 1px solid #333; }
-        footer a { color: #aaa; text-decoration: none; }
-
-        /* --- MEDIA QUERIES MÓVIL --- */
-        @media (max-width: 767px) {
-            .image-placeholder, 
-            .hero-section .image-placeholder,
-            .image-placeholder.landscape {
-                width: 75% !important;
-                aspect-ratio: 1/1 !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .testimonial-img {
-                width: 85% !important;
-            }
-            /* CORRECCIÓN 1: CHAT RATIO MÓVIL 9:16 FORZADO */
-            .chat-ratio {
-                aspect-ratio: 9/16 !important;
-                width: 85% !important;
-            }
-            .section-white, .section-black, .hero-section {
-                padding-top: 25px !important;
-                padding-bottom: 25px !important;
-            }
-            .hero-section { gap: 15px !important; }
-            h2.section-title { font-size: 22px !important; margin-bottom: 15px !important; }
-
-            .offer-vertical-img {
-                aspect-ratio: 9/16 !important; 
-                width: 85% !important; 
-                margin: 0 auto 20px auto !important;
-            }
-        }
-
-        /* --- MEDIA QUERIES DESKTOP --- */
-        @media (min-width: 992px) {
-            .hero-section {
-                flex-direction: row;
-                padding-top: 40px;
-                padding-bottom: 60px;
-                gap: 40px;
-            }
-            .text-column { width: 50%; align-items: flex-start; text-align: left; order: 0; }
-            .image-column { width: 50%; display: block; order: 1; }
-            h1.hero-title { font-size: 38px; margin-bottom: 20px; }
-            p.hero-subtitle { font-size: 18px; margin-bottom: 25px; }
-            .benefits-list { gap: 15px; }
-            .talking-head { font-size: 22px; padding: 14px 20px; }
-            
-            .image-placeholder, 
-            .hero-section .image-placeholder {
-                width: 100% !important;
-                aspect-ratio: 4/5 !important;
-            }
-            .image-placeholder.landscape { aspect-ratio: 16/9 !important; }
-
-            .section-white, .section-black { padding: 50px 20px !important; }
-
-            .grid-2-col {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                align-items: center;
-                width: 100%;
-            }
-            /* CORRECCIÓN 2: GRID DE TESTIMONIOS DESKTOP SIDE BY SIDE */
-            .testimonials-grid, .bonus-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-            }
-            .trust-badges { flex-direction: row; justify-content: center; gap: 20px; }
-
-            .offer-vertical-img {
-                aspect-ratio: 9/16 !important; 
-                margin: 0 auto 20px auto !important; 
-                width: 70% !important; 
-            }
-            
-            .bonus-img-container {
-                width: 100% !important;
-                max-width: 600px !important;
-                aspect-ratio: 1/1 !important;
-                margin: 0 auto 20px auto !important;
-            }
-            
-            .testimonial-img {
-                width: 100% !important;
-                max-width: 100% !important; /* Full width dentro de la columna */
-                aspect-ratio: 9/16 !important; /* Mismo ratio en desktop para consistencia visual */
-                margin: 0 auto !important;
-            }
-        }
-    </style>
+/* --- TIPOGRAFÍA Y TEXTOS --- */
+h2.section-title {
+font-size: 26px;
+font-weight: 900;
+text-transform: uppercase;
+text-align: center;
+margin-bottom: 20px;
+line-height: 1.2;
+}
+.section-white h2 { color: #000000; }
+.section-black h2 { color: #ffffff; }
+p.text-body {
+font-size: 16px;
+margin-bottom: 15px;
+text-align: left;
+}
+.section-black p.text-body { color: #e0e0e0; }
+/* --- IMÁGENES & PLACEHOLDERS --- */
+.image-placeholder {
+width: 100%;
+max-width: 500px;
+aspect-ratio: 4/5;
+background-color: transparent !important;
+border: none !important;
+display: block;
+padding: 0;
+margin-bottom: 20px;
+}
+.image-placeholder.landscape { aspect-ratio: 16/9; }
+.image-placeholder.dark-mode {
+background-color: transparent !important;
+}
+.prompt-desc {
+display: none !important;
+}
+/* ESTILOS ESPECÍFICOS */
+.chat-ratio { aspect-ratio: 9/16 !important; }
+.square-ratio { aspect-ratio: 1/1 !important; }
+/* --- IMÁGENES CIRCULARES --- */
+.circle-image-container {
+width: 210px;
+height: 210px;
+border-radius: 50%;
+margin: 0 auto 25px auto;
+overflow: hidden;
+display: block;
+border: 4px solid #C00000;
+background-color: #000;
+aspect-ratio: 1/1;
+}
+.circle-image-container img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+margin: 0;
+border-radius: 50%;
+border: none;
+}
+.author-img-style {
+width: 215px;
+height: 215px;
+border-radius: 50%;
+object-fit: cover;
+border: 6px solid #C00000;
+margin: 0 auto 20px auto;
+display: block;
+aspect-ratio: 1/1;
+flex-shrink: 0;
+}
+/* --- ELEMENTOS ESPECÍFICOS --- */
+.pain-list { list-style: none; padding: 0; width: 100%; }
+.pain-list li { margin-bottom: 15px; display: flex; gap: 12px; align-items: flex-start; color: #ddd; }
+.pain-icon { color: #C00000; font-weight: bold; }
+.intriga-list {
+list-style: none;
+padding: 0;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.intriga-list li {
+background-color: #f9f9f9;
+border: 1px solid #eee;
+padding: 12px 15px;
+border-radius: 6px;
+font-size: 15px;
+display: flex;
+align-items: center;
+gap: 12px;
+color: #333;
+text-align: left;
+}
+.intriga-list li .check-icon { font-size: 16px; }
+/* --- BONOS --- */
+.bonus-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 20px;
+width: 100%;
+}
+.bonus-card {
+background: #ffffff;
+border: 3px solid #C00000;
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 20px;
+width: 100%;
+}
+.bonus-card h3 {
+color: #000000 !important;
+font-size: 18px;
+margin-bottom: 10px;
+text-align: center;
+}
+.bonus-card p.text-body {
+color: #333333 !important;
+}
+.bonus-tag {
+background-color: #C00000;
+color: white;
+padding: 4px 10px;
+font-size: 12px;
+font-weight: 700;
+border-radius: 4px;
+display: inline-block;
+margin-bottom: 10px;
+}
+.price-free {
+color: #00C853;
+font-weight: 900;
+font-size: 16px;
+text-transform: uppercase;
+text-align: center;
+display: block;
+margin-top: 10px;
+}
+/* --- OFERTA --- */
+.offer-box {
+background: #fff;
+border: 3px dashed #C00000;
+border-radius: 10px;
+padding: 25px;
+width: 100%;
+text-align: center;
+}
+.price-container { margin: 25px 0; }
+.old-price {
+font-size: 18px;
+color: #888;
+text-decoration: line-through;
+font-weight: 600;
+display: block;
+margin-bottom: 5px;
+}
+.launch-label {
+display: block;
+font-weight: 900;
+color: #000;
+margin-bottom: 5px;
+font-size: 18px;
+text-transform: uppercase;
+}
+.new-price {
+font-size: 60px;
+font-weight: 900;
+color: #00C853;
+line-height: 1;
+display: block;
+}
+/* --- FAQ --- */
+.faq-item { width: 100%; margin-bottom: 10px; border-radius: 5px; overflow: hidden; background-color: #fff; text-align: left; }
+.faq-item summary { background-color: #C00000; color: white; padding: 15px 20px; cursor: pointer; list-style: none; position: relative; font-weight: 700; font-size: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; position: absolute; right: 20px; font-weight: 900; font-size: 20px; }
+.faq-item[open] > summary::after { content: '-'; }
+.faq-respuesta { padding: 20px; border: 1px solid #eee; border-top: none; color: #333; }
+.trust-badges { display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #666; margin-top: 15px; align-items: center; }
+.trust-item i { margin-right: 8px; color: #C00000; }
+footer { background-color: #111; color: #888; padding: 40px 20px; text-align: center; border-top: 1px solid #333; }
+footer a { color: #aaa; text-decoration: none; }
+/* --- MEDIA QUERIES MÓVIL --- */
+@media (max-width: 767px) {
+.image-placeholder,
+.hero-section .image-placeholder,
+.image-placeholder.landscape {
+width: 75% !important;
+aspect-ratio: 1/1 !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}
+.testimonial-img {
+width: 85% !important;
+}
+.chat-ratio {
+aspect-ratio: 9/16 !important;
+width: 85% !important;
+}
+.section-white, .section-black, .hero-section {
+padding-top: 25px !important;
+padding-bottom: 25px !important;
+}
+.hero-section { gap: 15px !important; }
+h2.section-title { font-size: 22px !important; margin-bottom: 15px !important; }
+.offer-vertical-img {
+aspect-ratio: 9/16 !important;
+width: 85% !important;
+margin: 0 auto 20px auto !important;
+}
+}
+/* --- MEDIA QUERIES DESKTOP --- */
+@media (min-width: 992px) {
+.hero-section {
+flex-direction: row;
+padding-top: 40px;
+padding-bottom: 60px;
+gap: 40px;
+}
+.text-column { width: 50%; align-items: flex-start; text-align: left; order: 0; }
+.image-column { width: 50%; display: block; order: 1; }
+h1.hero-title { font-size: 38px; margin-bottom: 20px; }
+p.hero-subtitle { font-size: 18px; margin-bottom: 25px; }
+.benefits-list { gap: 15px; }
+.talking-head { font-size: 22px; padding: 14px 20px; }
+.image-placeholder,
+.hero-section .image-placeholder {
+width: 100% !important;
+aspect-ratio: 4/5 !important;
+}
+.image-placeholder.landscape { aspect-ratio: 16/9 !important; }
+.section-white, .section-black { padding: 50px 20px !important; }
+.grid-2-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+align-items: center;
+width: 100%;
+}
+.testimonials-grid, .bonus-grid {
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+.trust-badges { flex-direction: row; justify-content: center; gap: 20px; }
+.offer-vertical-img {
+aspect-ratio: 9/16 !important;
+margin: 0 auto 20px auto !important;
+width: 70% !important;
+}
+.bonus-img-container {
+width: 100% !important;
+max-width: 600px !important;
+aspect-ratio: 1/1 !important;
+margin: 0 auto 20px auto !important;
+}
+.testimonial-img {
+width: 100% !important;
+max-width: 100% !important;
+aspect-ratio: 9/16 !important;
+margin: 0 auto !important;
+}
+}
+</style>
 </head>
 <body>
-
-    <!-- HERO SECTION -->
-    <div class="talking-head">
-        FINALMENTE: La Fórmula Psicológica para Despertar Atracción en Mujeres
-    </div>
-
-    <section class="hero-section">
-        <div class="text-column">
-            <h1 class="hero-title">
-                Cómo Dejar De Ser El "Amigo Simpático" Y Convertirte En El Hombre Que Despierta <span class="highlight-red">Deseo, Intriga Y Respeto</span>... <span class="highlight-underline">Incluso Si Crees Que Ellas "Nunca Te Eligen"</span>.
-            </h1>
-            <p class="hero-subtitle">
-                Olvídate De Rogar Atención O Competir Con Billeteras Abultadas. Aprende A Usar Los "Interruptores De Atracción" Que La Mente Femenina No Puede Ignorar, Creando Tensión Sexual Y Misterio Desde La Primera Frase.
-            </p>
-            
-            <ul class="benefits-list">
-                <li>
-                    <span class="check-icon">✅</span>
-                    <span class="benefit-text"><span class="benefit-bold">Elimina El Miedo Al Rechazo:</span> Descubre Una Estructura Probada Para Iniciar Conversaciones Sin Quedarte En Blanco Y Sin Sentirte Torpe.</span>
-                </li>
-                <li>
-                    <span class="check-icon">✅</span>
-                    <span class="benefit-text"><span class="benefit-bold">Sal De La "Friendzone" Para Siempre:</span> Deja De Ser El Paño De Lágrimas Y Conviértete En El Desafío Que Ellas Quieren Ganar.</span>
-                </li>
-                <li>
-                    <span class="check-icon">✅</span>
-                    <span class="benefit-text"><span class="benefit-bold">100% Ético Y Efectivo:</span> Domina El Arte De La Seducción Psicológica Sin Caer En La Manipulación Tóxica Ni Perder Tu Esencia.</span>
-                </li>
-            </ul>
-        </div>
-        <div class="image-column">
-            <div class="image-placeholder">
-                <img 
-  src="/images/hero-tittle.webp"
-  alt="Cómo dejar de ser el amigo simpático y despertar deseo"
-  style="width:100%; height:100%; object-fit:cover; display:block;"
-  loading="eager"
-/>
-           </div>
-    </section>
-
-    <!-- PROBLEMA (1B) -->
-    <section class="section-black">
-        <div class="container">
-            <h2 class="section-title">¿Sientes Que Siempre Terminas Siendo El "Buen Amigo"?</h2>
-            
-            <div class="grid-2-col">
-                <div class="image-placeholder dark-mode landscape">
-                    <p><strong>[IMAGEN DOLOR]</strong></p>
-                    <div class="prompt-desc">Punto de vista en primera persona: Un hombre mirando su celular con frustración.</div>
-                </div>
-                
-                <div>
-                    <p class="text-body">No importa cuánto te esfuerces, cuánto escuches o cuán caballero seas. Al final, ella termina con el tipo que parece no importarle nada.</p>
-                    <ul class="pain-list">
-                        <li><span class="pain-icon">✖</span> ¿Te cuesta iniciar conversaciones sin sentirte torpe o invasivo?</li>
-                        <li><span class="pain-icon">✖</span> ¿Te esfuerzas por agradar, pero nunca despiertas deseo sexual real?</li>
-                        <li><span class="pain-icon">✖</span> ¿Te han dicho "eres muy bueno" justo antes de alejarte?</li>
-                    </ul>
-                    <p class="text-body" style="color: #C00000; font-weight: bold; margin-top: 20px; text-align: center;">No es tu culpa. Es que nadie te enseñó las reglas ocultas de la atracción.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUCIÓN (1C) -->
-    <section class="section-white">
-        <div class="container">
-            <h2 class="section-title">No Es Magia. Es Psicología Aplicada Con Precisión.</h2>
-            <div class="grid-2-col">
-                <div style="order: 2; width: 100%;">
-                    <p class="text-body" style="text-align: left;">
-                        <strong>NEGGING</strong> es la llave maestra para abrir el candado emocional de cualquier mujer. No se trata de ser grosero, sino de ser <strong>impredecible</strong>.
-                    </p>
-                    <p class="text-body" style="text-align: left;">
-                        Mientras otros hombres regalan su poder buscando aprobación, tú aprenderás a <strong>calibrar</strong> la interacción para que ella sienta la necesidad de ganarse la tuya.
-                    </p>
-                    <p class="text-body" style="text-align: left; font-weight: 700; margin-bottom: 10px;">
-                        ESTO ES LO QUE DOMINARÁS:
-                    </p>
-                    
-                    <ul class="emoji-list" style="margin-bottom: 20px; text-align: left;">
-                        <li>🎯 Generar tensión emocional que despierta interés inmediato.</li>
-                        <li>🎯 Usar técnicas Push & Pull para que ella busque tu validación.</li>
-                        <li>🎯 Diferenciarte del 99% de hombres predecibles y aburridos.</li>
-                        <li>🎯 Dominar interacciones sociales con humor y desafío.</li>
-                    </ul>
-                </div>
-                
-                <div class="image-placeholder" style="order: 1;">
-                    <p><strong>[IMAGEN SOLUCIÓN]</strong></p>
-                    <div class="prompt-desc">Hombre susurrando algo divertido a una mujer.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HISTORIAS REALES (1D) -->
-    <section class="section-black">
-        <div class="container">
-            <h2 class="section-title">Historias Reales de Hombres Que Dejan de Ser Invisibles</h2>
-            <div style="text-align: center; margin-bottom: 20px; color: #FFD700; font-size: 20px;">
-                <span style="color: #ffffff;">5.0</span> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div>
-                    <!-- CORRECCIÓN: Clases chat-ratio aplicadas y estilos inline removidos para que el CSS funcione -->
-                    <div class="image-placeholder dark-mode testimonial-img chat-ratio">
-                        <p><strong>[CHAT 1]</strong></p>
-                        <div class="prompt-desc" style="display:none;">H: "Siempre me dio risa cómo la gente se toma todo tan en serio." M: "¿Eso es una indirecta?" H: "No, es una observación. Pero si te sentiste aludida, es interesante 😏" M: "Jaja, ok… ahora me dejaste pensando." H: "Ese es un buen lugar para estar." M (minutos después): "¿Siempre eres así?"</div>
-                    </div>
-                    <p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Antes me dejaban en visto. Ahora, si tardo en responder, ellas vuelven a escribir."</p>
-                </div>
-                <div>
-                    <!-- CORRECCIÓN: Clases chat-ratio aplicadas -->
-                    <div class="image-placeholder dark-mode testimonial-img chat-ratio">
-                        <p><strong>[CHAT 2]</strong></p>
-                        <div class="prompt-desc" style="display:none;">M: "Gracias por escucharme, siempre eres muy atento." H: "No escucho a todo el mundo. Solo a quien me resulta interesante." M: "¿Y yo lo soy?" H: "Si no lo fueras, no estaríamos hablando." M: "… ok, eso cambió el tono." H: "Me gusta cambiar dinámicas."</div>
-                    </div>
-                    <p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Dejé de ser el amigo que escucha problemas y pasé a ser el hombre que genera emociones."</p>
-                </div>
-                <div>
-                    <!-- CORRECCIÓN: Clases chat-ratio aplicadas -->
-                    <div class="image-placeholder dark-mode testimonial-img chat-ratio">
-                        <p><strong>[CHAT 3]</strong></p>
-                        <div class="prompt-desc" style="display:none;">M: "Pensé que ibas a responder más rápido." H: "Estaba ocupado eligiendo bien a quién dedicarle mi tiempo." M: "¿Y ahora?" H: "Ahora veo que valió la pena." M: "Eres peligroso." H: "Solo para quien no sabe manejar la tensión."</div>
-                    </div>
-                    <p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Recuperar el control es adictivo. Ya no persigo, ahora filtro quién merece mi tiempo."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTRIGA (1E) -->
-    <section class="section-white">
-        <div class="container">
-            <h2 class="section-title">Conviértete en el Hombre que Genera Intriga, Deseo y Respeto</h2>
-            <div style="width: 100%;">
-                <ul class="intriga-list">
-                    <li><span class="check-icon"><i class="fas fa-brain"></i></span> Entender el poder del negging y su base psicológica.</li>
-                    <li><span class="check-icon"><i class="fas fa-fire"></i></span> Activar el deseo emocional y diferenciarte.</li>
-                    <li><span class="check-icon"><i class="fas fa-comments"></i></span> Iniciar conversaciones irresistibles con humor y desafío.</li>
-                    <li><span class="check-icon"><i class="fas fa-chart-line"></i></span> Escalar la tensión emocional con técnicas avanzadas.</li>
-                    <li><span class="check-icon"><i class="fas fa-users"></i></span> Superarte frente a otros hombres en cualquier entorno.</li>
-                    <li><span class="check-icon"><i class="fas fa-heart"></i></span> Llevar tus interacciones a la intimidad emocional.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRANSICIÓN (1F) -->
-    <section class="section-black">
-        <div class="container">
-            <h2 class="section-title">¿Por Qué "Ser Caballeroso" Te Mantiene Soltero?</h2>
-            <div class="grid-2-col">
-                <div class="image-placeholder dark-mode">
-                     <p><strong>[IMAGEN CONTRASTE]</strong></p>
-                </div>
-                <div>
-                    <p class="text-body">Te dijeron que si eras atento y escuchabas, ellas caerían rendidas. <strong>Es mentira.</strong></p>
-                    <p class="text-body">Sin tensión sexual, la amabilidad se interpreta como debilidad. Cuando eres demasiado predecible, matas el misterio.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BONOS -->
-    <section class="section-black">
-        <div class="container">
-            <h2 class="section-title">Tu Ventaja Injusta: 3 Herramientas De Poder Incluidas</h2>
-            <div class="bonus-grid">
-                <!-- Bono 1 -->
-                <div class="bonus-card">
-                    <span class="bonus-tag">GRATIS</span>
-                    <div class="image-placeholder bonus-img-container">
-                        <p>[IMG BONO 1]</p>
-                    </div>
-                    <h3>Bono #1: Recupera Tu Confianza</h3>
-                    <p class="price-free">TOTALMENTE GRATIS</p>
-                </div>
-                <!-- Bono 2 -->
-                <div class="bonus-card">
-                    <span class="bonus-tag">GRATIS</span>
-                    <div class="image-placeholder bonus-img-container">
-                        <p>[IMG BONO 2]</p>
-                    </div>
-                    <h3>Bono #2: Lenguaje Corporal</h3>
-                    <p class="price-free">TOTALMENTE GRATIS</p>
-                </div>
-                <!-- Bono 3 -->
-                <div class="bonus-card">
-                    <span class="bonus-tag">NUEVO Y EXCLUSIVO</span>
-                    <div class="image-placeholder bonus-img-container">
-                        <p><strong>[IMG BONO 3]</strong></p>
-                    </div>
-                    <h3>Bono #3: Filtro Secreto</h3>
-                    <p style="color: #00C853; text-align: center; text-transform: uppercase; font-weight: 900; margin-top: 10px;">VALOR REAL: INCALCULABLE</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- OFERTA -->
-    <section class="section-white">
-        <div class="container">
-            <h2 class="section-title">Todo Lo Que Necesitas Para Transformar Tu Vida Social</h2>
-            <div class="offer-box">
-                <div class="image-placeholder offer-vertical-img">
-                    <p><strong>[MOCKUP COMPLETO VERTICAL]</strong></p>
-                </div>
-                <div style="text-align: left; margin: 20px auto; max-width: 500px; color: #333;">
-                    <p style="margin-bottom: 8px;">EBOOK: NEGGING - Técnicas Oscuras de Seducción para Despertar Atracción y Deseo en Cualquier Mujer (Negging)</p>
-                    <p style="margin-bottom: 8px;">🎁 + 2 Bonos Incluidos GRATIS</p>
-                    <p style="margin-bottom: 8px;">🔒 +1 Bono Exclusivo NO DISPONIBLE PARA VENTA</p>
-                </div>
-                <div class="price-container">
-                    <span class="old-price">Precio Normal: $67 USD</span>
-                    <span class="launch-label">OFERTA DE LANZAMIENTO:</span>
-                    <span class="new-price">$7</span>
-                </div>
-                <a href="#" class="btn-cta">QUIERO ACCESO INMEDIATO</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- GARANTÍA -->
-    <section class="section-black">
-        <div class="container">
-            <div class="guarantee-box">
-                <h2 class="section-title" style="color: #fff; font-size: 30px; margin-bottom: 20px; line-height: 1.2;">TU INVERSIÓN ESTÁ BLINDADA</h2>
-                
-                <div class="circle-image-container">
-                    <div class="image-placeholder" style="background: #000; border: none; color: #fff;">
-                        <p style="font-size: 12px; margin: 0;">[SELLO GARANTÍA]</p>
-                    </div>
-                </div>
-                <h2 class="section-title" style="font-size: 24px;">Tu Riesgo Es Cero</h2>
-                <p class="text-body" style="text-align: center;">
-                    Prueba el método por <strong>7 días completos</strong>. Si no sientes que tienes más control y confianza, te devolvemos el 100% de tu dinero.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- AUTOR -->
-    <section class="section-white">
-        <div class="container">
-            <h2 class="section-title">Detrás de NEGGING Hay Experiencia y Visión Masculina</h2>
-            <div class="grid-2-col">
-                <div style="text-align: center;">
-                    <div class="author-img-style image-placeholder"></div>
-                </div>
-                <div>
-                    <h3 style="font-size: 24px; font-weight: 800; color: #000; margin-bottom: 10px;">Carlos Vásquez</h3>
-                    <p class="text-body" style="color: #C00000; font-weight: 600; margin-bottom: 15px;">Coach de desarrollo personal y especialista en dinámicas sociales.</p>
-                    <p class="text-body">Durante más de 10 años ha trabajado con hombres de todo el mundo, ayudándolos a transformar su confianza y dominar la interacción con mujeres.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section-black">
-        <div class="container">
-            <h2 class="section-title">¿Tienes Dudas? Aquí Tienes Respuestas Claras y Directas</h2>
-            <div style="width: 100%; max-width: 800px;">
-                <details class="faq-item"><summary>¿Cuáles son los métodos de pago?</summary><div class="faq-respuesta"><p>Tarjeta de crédito y débito, PayPal, y pagos locales como OXXO y otros en Latinoamérica y Europa.</p></div></details>
-                <details class="faq-item"><summary>¿Esto no es manipulación emocional?</summary><div class="faq-respuesta"><p>No. NEGGING enseña a provocar atracción de forma ética, con responsabilidad emocional y límites claros.</p></div></details>
-                <details class="faq-item"><summary>¿Funciona incluso si no tengo experiencia?</summary><div class="faq-respuesta"><p>Sí. Está diseñado desde cero con técnicas paso a paso, ejemplos y ejercicios prácticos.</p></div></details>
-                <details class="faq-item"><summary>¿Puedo acceder desde cualquier país?</summary><div class="faq-respuesta"><p>Sí. Es un ebook digital que puedes descargar al instante desde cualquier lugar del mundo.</p></div></details>
-                <details class="faq-item"><summary>¿Esto me servirá si ya tengo pareja?</summary><div class="faq-respuesta"><p>Sí. Te ayudará a mantener el interés, reforzar tu atractivo y liderar la dinámica de forma sana.</p></div></details>
-                <details class="faq-item"><summary>¿Cuánto tiempo necesito para ver resultados?</summary><div class="faq-respuesta"><p>Algunos cambios son inmediatos. Con práctica constante, los resultados se amplifican semana tras semana.</p></div></details>
-            </div>
-            <a href="#" class="btn-cta" style="margin-top: 40px;">VIVE EL PODER DE LA ATRACCIÓN HOY</a>
-            <div class="trust-badges">
-                <span class="trust-item"><i class="fas fa-lock"></i> Compra Segura</span>
-                <span class="trust-item"><i class="fas fa-shield-alt"></i> Garantía de Satisfacción</span>
-                <span class="trust-item"><i class="fas fa-user-secret"></i> Privacidad Protegida</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="section-white" style="text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Deja De Esperar A Que Te Elijan. Empieza A Elegir Tú.</h2>
-            <a href="#" class="btn-cta">DESCARGAR MÉTODO AHORA</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <h3 style="font-weight: 900; color: #fff; font-size: 24px; margin-bottom: 20px;">NEGGING</h3>
-            <p style="font-size: 12px; margin-bottom: 10px;">
-                © 2024 NEGGING - Todos los derechos reservados.<br>
-                Este sitio no es parte de Facebook o Facebook Inc.
-            </p>
-            <p style="font-size: 11px; margin-top: 10px;">
-                <a href="#">Términos de Uso</a> | <a href="#">Política de Privacidad</a>
-            </p>
-        </div>
-    </footer>
-
+<!-- HERO SECTION -->
+<div class="talking-head">
+FINALMENTE: La Fórmula Psicológica para Despertar Atracción en Mujeres
+</div>
+<section class="hero-section">
+<div class="text-column">
+<h1 class="hero-title">
+Cómo Dejar De Ser El "Amigo Simpático" Y Convertirte En El Hombre Que Despierta <span class="highlight-red">Deseo, Intriga Y Respeto</span>... <span class="highlight-underline">Incluso Si Crees Que Ellas "Nunca Te Eligen"</span>.
+</h1>
+<p class="hero-subtitle">
+Olvídate De Rogar Atención O Competir Con Billeteras Abultadas. Aprende A Usar Los "Interruptores De Atracción" Que La Mente Femenina No Puede Ignorar, Creando Tensión Sexual Y Misterio Desde La Primera Frase.
+</p>
+<ul class="benefits-list">
+<li>
+<span class="check-icon">✅</span>
+<span class="benefit-text"><span class="benefit-bold">Elimina El Miedo Al Rechazo:</span> Descubre Una Estructura Probada Para Iniciar Conversaciones Sin Quedarte En Blanco Y Sin Sentirte Torpe.</span>
+</li>
+<li>
+<span class="check-icon">✅</span>
+<span class="benefit-text"><span class="benefit-bold">Sal De La "Friendzone" Para Siempre:</span> Deja De Ser El Paño De Lágrimas Y Conviértete En El Desafío Que Ellas Quieren Ganar.</span>
+</li>
+<li>
+<span class="check-icon">✅</span>
+<span class="benefit-text"><span class="benefit-bold">100% Ético Y Efectivo:</span> Domina El Arte De La Seducción Psicológica Sin Caer En La Manipulación Tóxica Ni Perder Tu Esencia.</span>
+</li>
+</ul>
+</div>
+<div class="image-column">
+<div class="image-placeholder">
+<img src="/images/hero-tittle.webp" loading="eager">
+</div>
+</div>
+</section>
+<!-- PROBLEMA (1B) -->
+<section class="section-black">
+<div class="container">
+<h2 class="section-title">¿Sientes Que Siempre Terminas Siendo El "Buen Amigo"?</h2>
+<div class="grid-2-col">
+<div class="image-placeholder dark-mode landscape">
+<img src="/images/el-buen-amigo.webp" loading="lazy">
+</div>
+<div>
+<p class="text-body">No importa cuánto te esfuerces, cuánto escuches o cuán caballero seas. Al final, ella termina con el tipo que parece no importarle nada.</p>
+<ul class="pain-list">
+<li><span class="pain-icon">✖</span> ¿Te cuesta iniciar conversaciones sin sentirte torpe o invasivo?</li>
+<li><span class="pain-icon">✖</span> ¿Te esfuerzas por agradar, pero nunca despiertas deseo sexual real?</li>
+<li><span class="pain-icon">✖</span> ¿Te han dicho "eres muy bueno" justo antes de alejarte?</li>
+</ul>
+<p class="text-body" style="color: #C00000; font-weight: bold; margin-top: 20px; text-align: center;">No es tu culpa. Es que nadie te enseñó las reglas ocultas de la atracción.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SOLUCIÓN (1C) -->
+<section class="section-white">
+<div class="container">
+<h2 class="section-title">No Es Magia. Es Psicología Aplicada Con Precisión.</h2>
+<div class="grid-2-col">
+<div style="order: 2; width: 100%;">
+<p class="text-body" style="text-align: left;">
+<strong>NEGGING</strong> es la llave maestra para abrir el candado emocional de cualquier mujer. No se trata de ser grosero, sino de ser <strong>impredecible</strong>.
+</p>
+<p class="text-body" style="text-align: left;">
+Mientras otros hombres regalan su poder buscando aprobación, tú aprenderás a <strong>calibrar</strong> la interacción para que ella sienta la necesidad de ganarse la tuya.
+</p>
+<p class="text-body" style="text-align: left; font-weight: 700; margin-bottom: 10px;">
+ESTO ES LO QUE DOMINARÁS:
+</p>
+<ul class="emoji-list" style="margin-bottom: 20px; text-align: left;">
+<li>🎯 Generar tensión emocional que despierta interés inmediato.</li>
+<li>🎯 Usar técnicas Push & Pull para que ella busque tu validación.</li>
+<li>🎯 Diferenciarte del 99% de hombres predecibles y aburridos.</li>
+<li>🎯 Dominar interacciones sociales con humor y desafío.</li>
+</ul>
+</div>
+<div class="image-placeholder" style="order: 1;">
+<img src="/images/no-es-magia.webp" loading="lazy">
+</div>
+</div>
+</div>
+</section>
+<!-- HISTORIAS REALES (1D) -->
+<section class="section-black">
+<div class="container">
+<h2 class="section-title">Historias Reales de Hombres Que Dejan de Ser Invisibles</h2>
+<div style="text-align: center; margin-bottom: 20px; color: #FFD700; font-size: 20px;">
+<span style="color: #ffffff;">5.0</span> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+<div class="testimonials-grid">
+<div>
+<div class="image-placeholder dark-mode testimonial-img chat-ratio">
+<img src="/images/chat-1.webp" loading="lazy">
+</div>
+<p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Antes me dejaban en visto. Ahora, si tardo en responder, ellas vuelven a escribir."</p>
+</div>
+<div>
+<div class="image-placeholder dark-mode testimonial-img chat-ratio">
+<img src="/images/chat-2.webp" loading="lazy">
+</div>
+<p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Dejé de ser el amigo que escucha problemas y pasé a ser el hombre que genera emociones."</p>
+</div>
+<div>
+<div class="image-placeholder dark-mode testimonial-img chat-ratio">
+<img src="/images/chat-3.webp" loading="lazy">
+</div>
+<p class="text-body" style="font-size: 14px; color: #aaa; text-align: center;">"Recuperar el control es adictivo. Ya no persigo, ahora filtro quién merece mi tiempo."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- INTRIGA (1E) -->
+<section class="section-white">
+<div class="container">
+<h2 class="section-title">Conviértete en el Hombre que Genera Intriga, Deseo y Respeto</h2>
+<div style="width: 100%;">
+<ul class="intriga-list">
+<li><span class="check-icon"><i class="fas fa-brain"></i></span> Entender el poder del negging y su base psicológica.</li>
+<li><span class="check-icon"><i class="fas fa-fire"></i></span> Activar el deseo emocional y diferenciarte.</li>
+<li><span class="check-icon"><i class="fas fa-comments"></i></span> Iniciar conversaciones irresistibles con humor y desafío.</li>
+<li><span class="check-icon"><i class="fas fa-chart-line"></i></span> Escalar la tensión emocional con técnicas avanzadas.</li>
+<li><span class="check-icon"><i class="fas fa-users"></i></span> Superarte frente a otros hombres en cualquier entorno.</li>
+<li><span class="check-icon"><i class="fas fa-heart"></i></span> Llevar tus interacciones a la intimidad emocional.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TRANSICIÓN (1F) -->
+<section class="section-black">
+<div class="container">
+<h2 class="section-title">¿Por Qué "Ser Caballeroso" Te Mantiene Soltero?</h2>
+<div class="grid-2-col">
+<div class="image-placeholder dark-mode">
+<img src="/images/ser-caballeroso.webp" loading="lazy">
+</div>
+<div>
+<p class="text-body">Te dijeron que si eras atento y escuchabas, ellas caerían rendidas. <strong>Es mentira.</strong></p>
+<p class="text-body">Sin tensión sexual, la amabilidad se interpreta como debilidad. Cuando eres demasiado predecible, matas el misterio.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- BONOS -->
+<section class="section-black">
+<div class="container">
+<h2 class="section-title">Tu Ventaja Injusta: 3 Herramientas De Poder Incluidas</h2>
+<div class="bonus-grid">
+<!-- Bono 1 -->
+<div class="bonus-card">
+<span class="bonus-tag">GRATIS</span>
+<div class="image-placeholder bonus-img-container">
+<img src="/images/bono-1.webp" loading="lazy">
+</div>
+<h3>Bono #1: Recupera Tu Confianza</h3>
+<p class="price-free">TOTALMENTE GRATIS</p>
+</div>
+<!-- Bono 2 -->
+<div class="bonus-card">
+<span class="bonus-tag">GRATIS</span>
+<div class="image-placeholder bonus-img-container">
+<img src="/images/bono-2.webp" loading="lazy">
+</div>
+<h3>Bono #2: Lenguaje Corporal</h3>
+<p class="price-free">TOTALMENTE GRATIS</p>
+</div>
+<!-- Bono 3 -->
+<div class="bonus-card">
+<span class="bonus-tag">NUEVO Y EXCLUSIVO</span>
+<div class="image-placeholder bonus-img-container">
+<img src="/images/bono-3.webp" loading="lazy">
+</div>
+<h3>Bono #3: Filtro Secreto</h3>
+<p style="color: #00C853; text-align: center; text-transform: uppercase; font-weight: 900; margin-top: 10px;">VALOR REAL: INCALCULABLE</p>
+</div>
+</div>
+</div>
+</section>
+<!-- OFERTA -->
+<section class="section-white">
+<div class="container">
+<h2 class="section-title">Todo Lo Que Necesitas Para Transformar Tu Vida Social</h2>
+<div class="offer-box">
+<div class="image-placeholder offer-vertical-img">
+<img src="/images/oferta.webp" loading="lazy">
+</div>
+<div style="text-align: left; margin: 20px auto; max-width: 500px; color: #333;">
+<p style="margin-bottom: 8px;">EBOOK: NEGGING - Técnicas Oscuras de Seducción para Despertar Atracción y Deseo en Cualquier Mujer (Negging)</p>
+<p style="margin-bottom: 8px;">🎁 + 2 Bonos Incluidos GRATIS</p>
+<p style="margin-bottom: 8px;">🔒 +1 Bono Exclusivo NO DISPONIBLE PARA VENTA</p>
+</div>
+<div class="price-container">
+<span class="old-price">Precio Normal: $67 USD</span>
+<span class="launch-label">OFERTA DE LANZAMIENTO:</span>
+<span class="new-price">$7</span>
+</div>
+<a href="#" class="btn-cta">QUIERO ACCESO INMEDIATO</a>
+</div>
+</div>
+</section>
+<!-- GARANTÍA -->
+<section class="section-black">
+<div class="container">
+<div class="guarantee-box">
+<h2 class="section-title" style="color: #fff; font-size: 30px; margin-bottom: 20px; line-height: 1.2;">TU INVERSIÓN ESTÁ BLINDADA</h2>
+<div class="circle-image-container">
+<img src="/images/garantia.webp" loading="lazy" style="border: none; object-fit: cover;">
+</div>
+<h2 class="section-title" style="font-size: 24px;">Tu Riesgo Es Cero</h2>
+<p class="text-body" style="text-align: center;">
+Prueba el método por <strong>7 días completos</strong>. Si no sientes que tienes más control y confianza, te devolvemos el 100% de tu dinero.
+</p>
+</div>
+</div>
+</section>
+<!-- AUTOR -->
+<section class="section-white">
+<div class="container">
+<h2 class="section-title">Detrás de NEGGING Hay Experiencia y Visión Masculina</h2>
+<div class="grid-2-col">
+<div style="text-align: center;">
+<div class="author-img-style">
+<img src="/images/carlos-vasquez.webp" loading="lazy" style="border: 6px solid #C00000;">
+</div>
+</div>
+<div>
+<h3 style="font-size: 24px; font-weight: 800; color: #000; margin-bottom: 10px;">Carlos Vásquez</h3>
+<p class="text-body" style="color: #C00000; font-weight: 600; margin-bottom: 15px;">Coach de desarrollo personal y especialista en dinámicas sociales.</p>
+<p class="text-body">Durante más de 10 años ha trabajado con hombres de todo el mundo, ayudándolos a transformar su confianza y dominar la interacción con mujeres.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="section-black">
+<div class="container">
+<h2 class="section-title">¿Tienes Dudas? Aquí Tienes Respuestas Claras y Directas</h2>
+<div style="width: 100%; max-width: 800px;">
+<details class="faq-item"><summary>¿Cuáles son los métodos de pago?</summary><div class="faq-respuesta"><p>Tarjeta de crédito y débito, PayPal, y pagos locales como OXXO y otros en Latinoamérica y Europa.</p></div></details>
+<details class="faq-item"><summary>¿Esto no es manipulación emocional?</summary><div class="faq-respuesta"><p>No. NEGGING enseña a provocar atracción de forma ética, con responsabilidad emocional y límites claros.</p></div></details>
+<details class="faq-item"><summary>¿Funciona incluso si no tengo experiencia?</summary><div class="faq-respuesta"><p>Sí. Está diseñado desde cero con técnicas paso a paso, ejemplos y ejercicios prácticos.</p></div></details>
+<details class="faq-item"><summary>¿Puedo acceder desde cualquier país?</summary><div class="faq-respuesta"><p>Sí. Es un ebook digital que puedes descargar al instante desde cualquier lugar del mundo.</p></div></details>
+<details class="faq-item"><summary>¿Esto me servirá si ya tengo pareja?</summary><div class="faq-respuesta"><p>Sí. Te ayudará a mantener el interés, reforzar tu atractivo y liderar la dinámica de forma sana.</p></div></details>
+<details class="faq-item"><summary>¿Cuánto tiempo necesito para ver resultados?</summary><div class="faq-respuesta"><p>Algunos cambios son inmediatos. Con práctica constante, los resultados se amplifican semana tras semana.</p></div></details>
+</div>
+<a href="#" class="btn-cta" style="margin-top: 40px;">VIVE EL PODER DE LA ATRACCIÓN HOY</a>
+<div class="trust-badges">
+<span class="trust-item"><i class="fas fa-lock"></i> Compra Segura</span>
+<span class="trust-item"><i class="fas fa-shield-alt"></i> Garantía de Satisfacción</span>
+<span class="trust-item"><i class="fas fa-user-secret"></i> Privacidad Protegida</span>
+</div>
+</div>
+</section>
+<!-- CTA FINAL -->
+<section class="section-white" style="text-align: center;">
+<div class="container">
+<h2 class="section-title">Deja De Esperar A Que Te Elijan. Empieza A Elegir Tú.</h2>
+<a href="#" class="btn-cta">DESCARGAR MÉTODO AHORA</a>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<h3 style="font-weight: 900; color: #fff; font-size: 24px; margin-bottom: 20px;">NEGGING</h3>
+<p style="font-size: 12px; margin-bottom: 10px;">
+© 2024 NEGGING - Todos los derechos reservados.<br>
+Este sitio no es parte de Facebook o Facebook Inc.
+</p>
+<p style="font-size: 11px; margin-top: 10px;">
+<a href="#">Términos de Uso</a> | <a href="#">Política de Privacidad</a>
+</p>
+</div>
+</footer>
 </body>
 </html>
-
-
-
